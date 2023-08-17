@@ -19,6 +19,11 @@ public class MainController {
         return "about";
     }
 
+    @GetMapping("/contact")
+    public String contact( String name, Model model) {
+        model.addAttribute("contact","Contact");
+        return "contact";
+    }
 }
 
 
