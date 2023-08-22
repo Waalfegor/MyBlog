@@ -16,13 +16,13 @@ public class MainController {
     @GetMapping("/about")
     public String about( String name, Model model) {
         model.addAttribute("about","Обо мне");
-        return "about";
+        return "redirect:https://waalfegor.github.io/LastTest/";
     }
 
-    @GetMapping("/contact")
-    public String contact( String name, Model model) {
-        model.addAttribute("contact","Contact");
-        return "contact";
+    @GetMapping("/login")
+    public String login( String name, Model model) {
+        model.addAttribute("login","Вход");
+        return "login";
     }
 }
 
