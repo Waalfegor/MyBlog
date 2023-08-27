@@ -1,20 +1,45 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Spring Security Example </title>
+  <meta charset="utf-8">
+  <title>Log in with your account</title>
 </head>
+
 <body>
-<div th:if="${param.error}">
-  Invalid username and password.
+<div>
+  <form method="POST" action="/login">
+    <h2>Вход в систему</h2>
+    <div>
+      <input name="username" type="text" placeholder="Username"/>
+      <input name="password" type="password" placeholder="Password"/>
+      <button type="submit">Log In</button>
+      <h4><a href="/registration">Зарегистрироваться</a></h4>
+    </div>
+  </form>
 </div>
-<div th:if="${param.logout}">
-  You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-  <div><label> User Name : <input type="text" name="username"/> </label></div>
-  <div><label> Password: <input type="password" name="password"/> </label></div>
-  <div><input type="submit" value="Sign In"/></div>
-  <div><a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Home</a></div>
-</form>
+
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <title>Spring Security Example </title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:if="${param.error}">-->
+<!--  Invalid username and password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--  You have been logged out.-->
+<!--</div>-->
+<!--<form th:action="@{/login}" method="post">-->
+<!--&lt;!&ndash;  <div><label> User email : <input type="text" name="email"/> </label></div>&ndash;&gt;-->
+<!--  <div><label> User nickname : <input type="text" name="username"/> </label></div>-->
+<!--  <div><label> Password: <input type="password" name="password"/> </label></div>-->
+<!--  <div><button type="submit">Log In</button></div>-->
+<!--  <h4><a href="/registration">Зарегистрироваться</a></h4>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+

@@ -19,11 +19,6 @@ public class MainController {
         return "redirect:https://waalfegor.github.io/LastTest/";
     }
 
-    @GetMapping("/login")
-    public String login( String name, Model model) {
-        model.addAttribute("login","Вход");
-        return "login-modified";
-    }
 }
 
 

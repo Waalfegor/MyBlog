@@ -7,11 +7,36 @@
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/blog">Блог</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/blog/add">Добавить статью</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/user">Профиль</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/about">О нас</a>
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Sign Out"/>
-            </form>
+
+            <div class="my-2 my-lg-0">
+                <ul class="navbar-nav"
+                    th:switch="${#authentication} ? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                    <li class="nav-item pull-sm-0">
+                    <span th:case="${false}">
+                            <a class="nav-link btn btn-outline-primary" href="/login">Войдите</a>
+                    </span>
+                        <span th:case="${true}">
+                            <form th:action="@{/logout}" method="post">
+                                <input class="btn btn-outline-primary" type="submit" value="Выход"/>
+                            </form>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="my-2 my-lg-0">
+                <ul class="navbar-nav"
+                    th:switch="${#authentication} ? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                    <li class="nav-item pull-sm-0">
+                    <span th:case="${false}">
+                            <a class="nav-link btn btn-outline-primary" href="/registration">Зарегистрироваться</a>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+
         </nav>
     </div>
 </div>
