@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация</title>
+</head>
+
+<body>
+<!--https://ru.stackoverflow.com/questions/605314/thymeleaf-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F taken from here-->
+
+<form th:action="@{/registration}" th:object="${userForm}" method="post">
+  <table>
+    <tr>
+      <td>User name:</td>
+      <td><input type="text" th:field="*{username}" /></td>
+      <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" th:field="*{password}" /></td>
+    </tr>
+    <tr>
+      <td>Confirm password:</td>
+      <td><input type="password" th:field="*{passwordConfirm}" /></td>
+      <td th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordError}">passwordConfirm Error</td>
+    </tr>
+    <tr>
+      <td><button type="submit">Submit</button></td>
+    </tr>
+  </table>
+  <h3 th:if="${#fields.hasErrors('username')}" th:errors="*{usernameError}">Name Error</h3>
+  <h3 th:if="${#fields.hasErrors('password')}" th:errors="*{passwordError}">passwordConfirm Error</h3>
+</form>
+  <h3></h3>
+</body>
+</html>
